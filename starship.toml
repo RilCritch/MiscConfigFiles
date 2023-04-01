@@ -1,0 +1,46 @@
+## Use custom format - fancy
+#format = '''
+#[RC](white)[ ∶ ](yellow)$directory$rust$package
+#[┌───────────────────────────────────────────────────────────────────────────────────────▶](yellow)
+#[└▶](yellow) '''
+
+## Custom format - testing
+#format = '''
+#[](yellow)$directory$rust$package[](yellow)
+#[☻ ](yellow)$username[▶](yellow) '''
+
+## Custom format - basic
+format = '''
+$username [∶](bold yellow) $directory$rust$package$git_status$cmd_duration
+$character '''
+
+[character]
+success_symbol = '[▶](bold yellow)'
+error_symbol = '[▷](bold red)'
+
+[username]
+style_user = 'bold light-white'
+format = '[$user]($style)'
+show_always = true
+disabled = false
+
+[git_status]
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+
+[cmd_duration]
+show_milliseconds = false
+format = 'took(yellow) [$duration](bold purple)'
+min_time = 1000
+# format = 'took [$duration]($style)' - default
+
+[directory]
+style = 'blue'
+
+# Dont do linebreak
+[line_break]
+disabled = true
+
+# Disable the blank line at the start of the prompt
+add_newline = false
