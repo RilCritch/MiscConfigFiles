@@ -616,5 +616,6 @@ vim.keymap.set("n","<leader>sq", vim.cmd.wq, {desc = "[Save] File and [Q]uit"})
 -- RILEY SETTING BACKGROUND TRANSPARENT FOR NORMAL AND FLOATING WINDOWS
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none"})
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none"})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et 
