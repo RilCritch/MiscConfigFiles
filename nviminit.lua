@@ -228,14 +228,6 @@ require('lazy').setup({
     dependencies = { { 'nvim-tree/nvim-web-devicons' } },
   },
 
-  {
-    'numToStr/Comment.nvim',
-    config = function()
-      local comment = require('Comment')
-      comment.setup()
-    end,
-  },
-
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
