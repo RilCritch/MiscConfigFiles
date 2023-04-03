@@ -211,14 +211,14 @@ require('lazy').setup({
     end,
   },
 
-  {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
-    config = function()
-      -- you can configure Hop the way you like here; see :h hop-config
-      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end,
-  },
+--  { -- plugin for moving around documents much faster
+--    'phaazon/hop.nvim',
+--    branch = 'v2', -- optional but strongly recommended
+--    config = function()
+--      -- you can configure Hop the way you like here; see :h hop-config
+--      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+--    end,
+--  },
 
   {
     'goolord/alpha-nvim',
@@ -227,6 +227,7 @@ require('lazy').setup({
     end,
     dependencies = { { 'nvim-tree/nvim-web-devicons' } },
   },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -346,6 +347,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 
 -- RILEY ADDITIONS FOR TELESCOPE
 vim.keymap.set('n', '<leader>cs', require('telescope.builtin').colorscheme, { desc = '[C]olor [S]cheme' })
+vim.keymap.set('n', '<leader>sr', require('telescope.builtin').oldfiles, { desc = '[S]earch [R]ecent Files' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -554,6 +556,15 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
+}
+
+-- RILEY CUSTOM ALPHA NVIM CONFIGURATION
+local dashboard = require "alpha.themes.dashboard"
+dashboard.section.buttons.val = {
+  dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+  dashboard.button("SPC s f", "  Find file", ":Telescope find_files <CR>"),
+  dashboard.button("SPC s r", "  Recently opened files", ":Telescope oldfiles <CR>"),
+  dashboard.button("SPC s g", "  Find word", ":Telescope live_grep <CR>"),
 }
 
 -- RILEY CUSTOM KEY MAPS FOR VIM COMMANDS
