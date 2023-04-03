@@ -558,8 +558,16 @@ cmp.setup {
   },
 }
 
+
 -- RILEY CUSTOM ALPHA NVIM CONFIGURATION
 local dashboard = require "alpha.themes.dashboard"
+dashboard.section.header.val = {
+  [[ ____   _  _   ____        _  _         _     ]],
+  [[|  _ \ (_)| | / ___| _ __ (_)| |_  ___ | |__  ]],
+  [[| |_) || || || |    | '__|| || __|/ __|| '_ \ ]],
+  [[|  _ < | || || |___ | |   | || |_| (__ | | | |]],
+  [[|_| \_\|_||_| \____||_|   |_| \__|\___||_| |_|]],
+}
 dashboard.section.buttons.val = {
   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
   dashboard.button("SPC s f", "  Find file", ":Telescope find_files <CR>"),
@@ -567,9 +575,17 @@ dashboard.section.buttons.val = {
   dashboard.button("SPC s g", "  Find word", ":Telescope live_grep <CR>"),
 }
 
+
+-- RILEY CUSTOM NVIM-TREE COMMANDS
+vim.keymap.set("n","<leader>nt", vim.cmd.NvimTreeToggle, {desc = "[N]vim [T]ree Toggle"}) -- Most useful
+vim.keymap.set("n","<leader>nf", vim.cmd.NvimTreeFindFile, {desc = "[N]vim Tree Current [F]ile"}) -- Most useful
+
+
 -- RILEY CUSTOM HOP NVIM CONFIGURATION
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
+
+-- defaults from hop nvim github
 vim.keymap.set('', 'f', function()
   hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
 end, {remap=true})
@@ -583,13 +599,18 @@ vim.keymap.set('', 'T', function()
   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
 end, {remap=true})
 
+-- My custom keykinds for hop nvim
+vim.keymap.set("n","<leader>h", vim.cmd.HopWord, {desc = "[H]op Word"}) -- Most useful
+
+
 -- RILEY CUSTOM KEY MAPS FOR VIM COMMANDS
 -- open file explorer
 vim.keymap.set("n","<leader>fx", vim.cmd.Ex, {desc = "[F]ile E[x]plorer"})
 -- save file
 vim.keymap.set("n","<leader>sv", vim.cmd.w, {desc = "[S]a[v]e File"})
 -- save file quit
-vim.keymap.set("n","<leader>sq", vim.cmd.wq, {desc = "[S]ave File and [Q]uit"})
+vim.keymap.set("n","<leader>sq", vim.cmd.wq, {desc = "[Save] File and [Q]uit"})
+
 
 -- RILEY SETTING BACKGROUND TRANSPARENT FOR NORMAL AND FLOATING WINDOWS
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none"})
