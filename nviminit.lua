@@ -228,7 +228,7 @@ require('lazy').setup({
     dependencies = { { 'nvim-tree/nvim-web-devicons' } },
   },
 
-
+  {'voldikss/vim-floaterm'},
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -610,8 +610,15 @@ vim.keymap.set("n","<leader>fx", vim.cmd.Ex, {desc = "[F]ile E[x]plorer"})
 -- save file
 vim.keymap.set("n","<leader>sv", vim.cmd.w, {desc = "[S]a[v]e File"})
 -- save file quit
-vim.keymap.set("n","<leader>sq", vim.cmd.wq, {desc = "[Save] File and [Q]uit"})
-
+vim.keymap.set("n","<leader>sq", vim.cmd.wq, {desc = "[S]ave File and [Q]uit"})
+-- open mason
+vim.keymap.set("n", "<leader>ma", ":Mason<CR>",{desc = "Open [M][a]son"})
+-- open lazy plugin manager
+vim.keymap.set("n", "<leader>lp", ":Lazy<CR>",{desc = "Open [L]azy [P]lugin Manager"})
+-- open alpha dashboard
+vim.keymap.set("n", "<leader>al", ":Lazy<CR>",{desc = "Open [A][l]pha Dashboard"})
+-- running floaterm with prefered flags
+vim.keymap.set("n", "<leader>ft", ":FloatermNew --height=0.8 --width=0.9 --disposable<CR>",{desc = "[F]loat[t]erm"})
 
 -- RILEY SETTING BACKGROUND TRANSPARENT FOR NORMAL AND FLOATING WINDOWS
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none"})
